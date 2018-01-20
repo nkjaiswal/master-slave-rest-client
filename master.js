@@ -18,14 +18,11 @@ var server = app.listen(port, function(){
 
 var maxAssigned = 10;
 
-var flatsJson = require("./flats.json");
-var data = [];
-for(var f=0; f<flatsJson.length; f++){
-	if(flatsJson[f].flatId != "" || flatsJson[f].flatId != undefined || flatsJson[f].owner != "" || flatsJson[f].owner != undefined)
-		data.push(flatsJson[f].flatId);
-}
 
-console.log("Available Flats",data.length);
+var data = ["task1","task2","task3","task4"];
+
+
+
 app.get("/notify/:id",function(req,res){
 	assignTask(req.params.id);
 	res.end("RECVD_MASTER");
